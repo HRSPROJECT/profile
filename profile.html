@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Harsheet Gundecha — Portfolio</title>
+  <meta name="description" content="Portfolio of Harsheet Gundecha — aspiring software engineer and AI enthusiast." />
+  <meta name="author" content="Harsheet Gundecha">
+  <meta name="keywords" content="Harsheet Gundecha, portfolio, software engineer, AI, web developer, python, javascript, react">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Harsheet Gundecha — Portfolio" />
+  <meta property="og:description" content="Aspiring software engineer and AI enthusiast showcasing projects and skills." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-portfolio-url.com" />
+  <meta property="og:image" content="https://your-portfolio-url.com/og-image.png" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Harsheet Gundecha — Portfolio">
+  <meta name="twitter:description" content="Aspiring software engineer and AI enthusiast showcasing projects and skills.">
+  <meta name="twitter:image" content="https://your-portfolio-url.com/twitter-image.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg: #111827;
+      --card-bg: #1f2937;
+      --heading: #d1d5db;
+      --text: #9ca3af;
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139, 92, 246, 0.4);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+    a { color: var(--accent); text-decoration: none; transition: color 0.3s ease; }
+    a:hover { color: #a78bfa; }
+    .wrap { max-width: 1100px; margin: 36px auto; padding: 28px; }
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid transparent;
+      background-clip: padding-box;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease-out;
+    }
+    .grid { display: grid; grid-template-columns: 1fr 340px; gap: 28px; }
+    header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #c4b5fd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 18px;
+      animation: float 4s ease-in-out infinite;
+    }
+    .name { font-size: 22px; font-weight: 800; color: var(--heading); }
+    .tag { font-size: 13px; }
+    .hero { display: flex; gap: 20px; align-items: center; margin-top: 20px; }
+    .hero-left { flex: 1; }
+    h1 { font-size: 34px; margin: 0 0 8px 0; color: var(--heading); min-height: 3em; }
+    p.lead { margin: 0; line-height: 1.6; font-size: 16px; }
+    .cta { margin-top: 24px; }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      margin-right: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 0 0 var(--accent-glow);
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -10px var(--accent-glow);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--heading);
+      border: 1px solid #4b5563;
+    }
+    .btn-secondary:hover {
+      background: #374151;
+      border-color: #6b7280;
+    }
+    .section {
+      margin-top: 32px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2.section-title {
+      font-size: 18px;
+      margin: 0 0 16px 0;
+      color: var(--heading);
+      letter-spacing: 0.5px;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+    }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill {
+      background: #374151;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--heading);
+      transition: all 0.3s ease;
+    }
+    .skill:hover {
+      transform: scale(1.05);
+      background: var(--accent);
+      color: white;
+    }
+    .projects-carousel {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .project {
+      padding: 20px;
+      border-radius: 12px;
+      background: #374151;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .project:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    .project h3 { margin: 0 0 8px 0; font-size: 16px; color: var(--heading); }
+    .project p { margin: 0 0 16px 0; font-size: 14px; line-height: 1.5; }
+    .meta { font-size: 13px; margin-top: 12px; }
+    .view-project-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        padding: 8px 16px;
+        font-size: 12px;
+        background: var(--accent);
+        color: white;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+    }
+    .project:hover .view-project-btn {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+    .project:hover p {
+        margin-bottom: 50px; /* Make space for the button */
+    }
+    .contact-list { list-style: none; padding: 0; margin: 0; }
+    .contact-list li { display: flex; align-items: center; gap: 12px; padding: 10px 0; }
+    .contact-list i { width: 20px; text-align: center; }
+    footer { margin-top: 32px; text-align: center; font-size: 13px; }
+
+    /* Modal Styles */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 1000;
+    }
+    .modal-backdrop.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    .modal-backdrop.is-visible .modal-content {
+      transform: scale(1);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .modal-header h3 {
+      margin: 0;
+      font-size: 20px;
+      color: var(--heading);
+    }
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 24px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .modal-close:hover {
+      color: var(--heading);
+    }
+    .modal-body img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .modal-body p {
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+    .modal-nav:hover { background: rgba(255,255,255,0.2); }
+    .modal-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+    #modal-prev { left: -60px; }
+    #modal-next { right: -60px; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero { flex-direction: column-reverse; }
+      .header-buttons { display: none; }
+      h1 { font-size: 30px; min-height: 0; }
+      #modal-prev { left: 10px; }
+      #modal-next { right: 10px; }
+    }
+    @media (max-width: 520px) {
+      .wrap { padding: 16px; }
+      .name { font-size: 20px; }
+      h1 { font-size: 26px; }
+      .cta { text-align: center; }
+      .btn { width: 100%; margin-bottom: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="grid">
+        <main>
+          <header>
+            <div class="logo">
+              <div class="avatar">HG</div>
+              <div>
+                <div class="name">Harsheet Gundecha</div>
+                <div class="tag">Aspiring Software Engineer | AI Enthusiast</div>
+              </div>
+            </div>
+            <div class="header-buttons">
+              <a class="btn" href="#contact"><i class="fa fa-envelope"></i> Contact</a>
+              <a class="btn btn-secondary" href="#projects"><i class="fa fa-code"></i> Projects</a>
+            </div>
+          </header>
+
+          <section class="section hero">
+            <div class="hero-left">
+              <h1><span id="typed"></span></h1>
+              <p class="lead">I am a first-year B.Tech student who is enthusiastic about creating applications and tools that make people's lives easier. To improve my learning and quicken my development, I have implemented several apps and actively use AI tools, such as those from Google. I've been able to design and secure applications using both web and backend technologies thanks to this. By carefully outlining architecture and security considerations without disclosing sensitive information, I approach AI as a coding partner.</p>
+              <div class="cta">
+                <a class="btn" href="mailto:Harsheetgundecha984@gmail.com">Get in touch</a>
+                <a class="btn btn-secondary" href="resume.html">View Resume</a>
+              </div>
+            </div>
+            <div style="width:220px;text-align:center; flex-shrink: 0;">
+              <svg width="100%" height="auto" viewBox="0 0 220 220" style="border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,0.3)">
+                <rect width="220" height="220" fill="#374151"/>
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#9ca3af" font-size="20" font-family="Inter, sans-serif">Image</text>
+              </svg>
+              <div style="color:var(--text);font-size:13px;margin-top:8px">Your Image Here</div>
+            </div>
+          </section>
+
+          <section class="section" id="skills">
+            <h2 class="section-title">Skills & Tools</h2>
+            <div class="skills">
+              <div class="skill">Java</div>
+              <div class="skill">JavaScript</div>
+              <div class="skill">Firebase</div>
+              <div class="skill">OpenCV</div>
+              <div class="skill">WebRTC</div>
+              <div class="skill">Git & GitHub</div>
+              <div class="skill">Google Colab</div>
+              <div class="skill">Vite</div>
+              <div class="skill">Expo / React Native</div>
+              <div class="skill">n8n / Make.com</div>
+              <div class="skill">firebase studio</div>
+              <div class="skill">google ai studio</div>
+            </div>
+          </section>
+
+          <section class="section" id="projects">
+            <h2 class="section-title">Selected Projects</h2>
+            <div class="projects-carousel">
+              <div class="project" data-title="AI Coder & 10+ AI Tools" data-description="Developed AI-powered SaaS tools (AI Coder, Resume Maker, YouTube Summarizer) with clean UX and optimized performance." data-image="https://via.placeholder.com/400x250/374151/9ca3af?text=Project+Image+1" data-github="https://github.com/HRSPROJECT/ai-coder">
+                <h3>AI Coder & 10+ AI Tools</h3>
+                <p>Developed AI-powered SaaS tools (AI Coder, Resume Maker, YouTube Summarizer) with clean UX and optimized performance.</p>
+                <div class="meta">Tech: Web • AI • SaaS</div>
+                <button class="view-project-btn">View Project</button>
+              </div>
+              <div class="project" data-title="Modern ERP System" data-description="Built ERP using React, Vite, TypeScript, and Firebase with real-time sales, inventory, and offline sync." data-image="https://via.placeholder.com/400x250/374151/9ca3af?text=Project+Image+2" data-github="https://github.com/HRSPROJECT/erp-system">
+                <h3>Modern ERP System</h3>
+                <p>Built ERP using React, Vite, TypeScript, and Firebase with real-time sales, inventory, and offline sync.</p>
+                <div class="meta">Tech: React • TypeScript • Firebase</div>
+                <button class="view-project-btn">View Project</button>
+              </div>
+              <div class="project" data-title="P2P chat app" data-description="Developed browser-based file text/image app with github pages deployment." data-image="https://via.placeholder.com/400x250/374151/9ca3af?text=Project+Image+3" data-github="https://github.com/HRSPROJECT/p2p-chat">
+                <h3>P2P chat app</h3>
+                <p>Developed browser-based file text/image app with github pages deployment.</p>
+                <div class="meta">Tech: WebRTC • JS • Netlify</div>
+                <button class="view-project-btn">View Project</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="experience">
+            <h2 class="section-title">Achievements & Experience</h2>
+            <ul style="font-size:14px; line-height: 1.8;">
+              <li>Scored 85.91 percentile in CET and 100/300 in JEE Mains; Top 10 in academy.</li>
+              <li>Built 3+ apps and 20+ web projects, including production-grade tools.</li>
+              <li>Independent Developer — Built and Deployed SaaS tools, integrated AI into apps, and used and made open-source projects.</li>
+            </ul>
+          </section>
+        </main>
+
+        <aside>
+          <div class="card">
+            <h2 class="section-title">Contact</h2>
+            <ul class="contact-list" id="contact">
+              <li><i class="fa fa-envelope"></i> <a href="mailto:Harsheetgundecha984@gmail.com">Harsheetgundecha984@gmail.com</a></li>
+              <li><i class="fa fa-phone"></i> +91-9420630142</li>
+              <li><i class="fa fa-github"></i> <a href="https://github.com/HRSPROJECT" target="_blank">github.com/HRSPROJECT</a></li>
+              <li><i class="fa fa-globe"></i> <a href="https://your-portfolio.example" target="_blank">your-portfolio.example</a></li>
+            </ul>
+
+            <div class="section">
+              <h2 class="section-title">Education</h2>
+              <div style="font-size:14px">1 st year b.tech at<br/>smt.kashibai navale, India • Expected 2025</div>
+            </div>
+
+            <div class="section">
+              <h2 class="section-title">Interests</h2>
+              <div style="font-size:14px">AI, Scalable Web Apps, Open-source,Solving problems with help of coding and many more.</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <footer>
+        © <span id="year"></span> Harsheet Gundecha — Built with focus on simplicity and innovation.
+      </footer>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="project-modal">
+    <div class="modal-content">
+      <button class="modal-nav" id="modal-prev" title="Previous project">&#10094;</button>
+      <button class="modal-nav" id="modal-next" title="Next project">&#10095;</button>
+      <button class="modal-close" id="modal-close-btn">&times;</button>
+      <div class="modal-header">
+        <h3 id="modal-title"></h3>
+      </div>
+      <div class="modal-body">
+        <img id="modal-image" src="" alt="Project Image">
+        <p id="modal-description"></p>
+        <a href="#" id="modal-github-link" class="btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    new Typed('#typed', {
+      strings: ["Hi — I build simple tools that make life easier.", "I love creating AI-powered apps.", "I design secure and scalable systems."],
+      typeSpeed: 50,
+      backSpeed: 25,
+      backDelay: 2000,
+      loop: true
+    });
+
+    // Scroll reveal animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Project Modal Logic
+    const projectCards = document.querySelectorAll('.project');
+    const modal = document.getElementById('project-modal');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalPrevBtn = document.getElementById('modal-prev');
+    const modalNextBtn = document.getElementById('modal-next');
+    let currentProjectIndex = 0;
+
+    function showProject(index) {
+      const card = projectCards[index];
+      const title = card.dataset.title;
+      const description = card.dataset.description;
+      const image = card.dataset.image;
+      const github = card.dataset.github;
+
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-description').textContent = description;
+      document.getElementById('modal-image').src = image;
+      document.getElementById('modal-github-link').href = github;
+
+      currentProjectIndex = index;
+
+      modalPrevBtn.disabled = currentProjectIndex === 0;
+      modalNextBtn.disabled = currentProjectIndex === projectCards.length - 1;
+
+      if (!modal.classList.contains('is-visible')) {
+        modal.classList.add('is-visible');
+      }
+    }
+
+    projectCards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        showProject(index);
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('is-visible');
+    }
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    modalPrevBtn.addEventListener('click', () => {
+        if (currentProjectIndex > 0) {
+            showProject(currentProjectIndex - 1);
+        }
+    });
+
+    modalNextBtn.addEventListener('click', () => {
+        if (currentProjectIndex < projectCards.length - 1) {
+            showProject(currentProjectIndex + 1);
+        }
+    });
+
+  </script>
+</body>
+</html>
